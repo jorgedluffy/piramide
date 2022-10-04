@@ -5,28 +5,36 @@ class ej
 	{
 		int ancho = 0;
 		int espacios = 0;
-		do
-		{
-			Console.WriteLine("Ingrese el ancho");
-			ancho = Convert.ToInt32(Console.ReadLine());
-		}
-		while (ancho % 2 ==0);
-		do
-		{
-			for(int j = 0;j<espacios;j++)
+		try
+		{	
+			do
 			{
-				Console.Write(" ");
+				Console.WriteLine("Ingrese el ancho");
+				ancho = Convert.ToInt32(Console.ReadLine());
 			}
-			for(int i = 1 ;i<=ancho;i++)
+			while (ancho % 2 ==0);
+			do
 			{
-				Console.Write("*");
+				for(int j = 0;j<espacios;j++)
+				{
+					Console.Write(" ");
+				}
+				for(int i = 1 ;i<=ancho;i++)
+				{
+					Console.Write("*");
+				}
+				ancho-=2;
+				espacios++;
+				Console.WriteLine();
+
 			}
-			ancho-=2;
-			espacios++;
-			Console.WriteLine();
-			
+			while(ancho >= 1);
 		}
-		while(ancho >= 1);
-		
+		catch  (Exception errorEncontrado)	
+		{
+			Console.WriteLine("Ha habido un error: {0}",
+			errorEncontrado.Message);
+		}
 	}
 }
+
